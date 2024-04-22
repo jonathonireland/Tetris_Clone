@@ -14,6 +14,9 @@ class Game:
         self.line_surface.set_colorkey((0,255,0))
         self.line_surface.set_alpha(120)
 
+        #test
+        self.block = Block()
+
     def draw_grid(self):
         for col in range(1,COLUMNS):
             x = col * CELL_SIZE
@@ -30,3 +33,9 @@ class Game:
         self.draw_grid()
         self.display_surface.blit(self.surface, (20,20))
         pygame.draw.rect(self.display_surface, LINE_COLOR, self.rect, 2, 2)
+
+class Block(pygame.sprite.Sprite):
+    def __init__(self):
+        self.image = pygame.Surface((CELL_SIZE, CELL_SIZE))
+        self.image.fill('red')
+        self.rect = self.image.get_rect(topleft = (0,0))
