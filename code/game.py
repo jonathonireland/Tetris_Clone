@@ -6,6 +6,13 @@ class Game:
         # general 
         self.surface = pygame.Surface((GAME_WIDTH, GAME_HEIGHT))
         self.display_surface = pygame.display.get_surface()
+        self.rect = self.surface.get_rect(topleft = (PADDING, PADDING))
+
+        # lines
+        self.line_surface = self.surface.copy()
+        self.line_surface.fill((0,255,0))
+        self.line_surface.set_colorkey((0,255,0))
+        self.line_surface.set_alpha(120)
 
     def draw_grid(self):
         for col in range(1,COLUMNS):
@@ -16,5 +23,10 @@ class Game:
             pygame.draw.line(self.surface, LINE_COLOR, (0, y), (self.surface.get_width(),y), 1)        
 
     def run(self):
+
+        # drawing
+        self.surface.fill(GRAY)
+
         self.draw_grid()
         self.display_surface.blit(self.surface, (20,20))
+        pygame.draw.rect(self.display_surface, LINE_COLOR, self.rect, 2, 2)

@@ -11,7 +11,7 @@ class Main:
 
 		# general 
 		pygame.init()
-		self.display_surface = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT))
+		self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 		self.clock = pygame.time.Clock()
 		pygame.display.set_caption('Tetris')
 
